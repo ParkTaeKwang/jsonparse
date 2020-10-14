@@ -61,19 +61,19 @@ DB에 저장하여 출력
     
 ##### MariaDB설치
 
-CREATE TABLE `JSONTEST` (
-  `NUM` int(11) NOT NULL AUTO_INCREMENT COMMENT '글번호',
-  `HASH` varchar(64) NOT NULL COMMENT '해쉬',
-  `CONTENTS` text NOT NULL COMMENT '내용',
-  `REG_DATE` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '최초등록일',
-  PRIMARY KEY (`NUM`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='JSON테스트';
+    CREATE TABLE `JSONTEST` (
+      `NUM` int(11) NOT NULL AUTO_INCREMENT COMMENT '글번호',
+      `HASH` varchar(64) NOT NULL COMMENT '해쉬',
+      `CONTENTS` text NOT NULL COMMENT '내용',
+      `REG_DATE` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '최초등록일',
+      PRIMARY KEY (`NUM`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='JSON테스트';
 
-MariaDB [(none)]>create database jsonparse;
-MariaDB [(none)]>use jsonparse;
-MariaDB [docuchain]>create user 'ictdb_json'@'%' identified by '2020a@json';
-MariaDB [docuchain]>GRANT ALL PRIVILEGES ON jsonparse.* TO 'ictdb_json'@'%';
-MariaDB [docuchain]>flush privileges;
+    MariaDB [(none)]>create database jsonparse;
+    MariaDB [(none)]>use jsonparse;
+    MariaDB [docuchain]>create user 'ictdb_json'@'%' identified by '2020a@json';
+    MariaDB [docuchain]>GRANT ALL PRIVILEGES ON jsonparse.* TO 'ictdb_json'@'%';
+    MariaDB [docuchain]>flush privileges;
 
 
     
