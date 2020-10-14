@@ -69,7 +69,7 @@ public class IndexController {
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(resultdata);
 	  
 		jsonVO =jsonObject.get("result");
-		System.out.println("jsonVO1111111111         :"+  jsonVO);
+		System.out.println("jsonVO11111         :"+  jsonVO);
 	
 
 		List<JsontestVO> jsontestList = indexService.getJsontestList();	
