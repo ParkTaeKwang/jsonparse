@@ -11,32 +11,37 @@ import lombok.Setter;
 public class jsonVO implements Serializable {
 
 	private static final long serialVersionUID = 433998533810083144L;
+		
+	private String num;
 	
-	private String blockNumber;
-    private String timeStamp;
-    private String hash;
-    private String nonce;
-    private String blockHash;
+	private String blockHash;
+    private String contractAddress;
+    
     private String transactionIndex;
+    private String confirmations;
+    
+    private String nonce;  
+    private String timeStamp;
+    
+    
+    private String input;
+    private String gasUsed;
+    
+    
+    private String isError;
+    private String txreceipt_status;
+    
+    private String blockNumber;
+    private String gas;
+    
+    
+    private String cumulativeGasUsed;
     private String from;
+    
     private String to;
-
-   
-    public Data data;
-    class Data{
-     private String blockHash;
-     private String transactionIndex;
-     private String from;
-     private String to;
-    }
+    private String value;
     
-    
-    public List<Price> Price;
-    
-    class Price{
-     private String value;
-     private String gas;
-     private String gasPrice;
-    }   
+    private String hash;    
+    private String gasPrice;
 
 }

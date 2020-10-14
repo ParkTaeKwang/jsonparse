@@ -48,33 +48,32 @@ public class IndexController {
 	
 	
 	@RequestMapping(value = "/jsonparse")
-	public String jsontesttest(Model model) throws IOException {		
+	public String jsontesttest(Model model) throws IOException, ParseException {
+	   Object jsonVO = new jsonVO();
+		
+		
 		System.out.println("jsonparse:");	
 	
-		String urlStr = "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xB8c77482e45F1F44dE1745F52C74426C631bDD52&page=1&offset=1&sort=desc";
+		String urlStr = "https://ropsten.etherscan.io/api?module=account&action=txlist&address=0xFf0797D06e8F9897B1D5066C10D9497Ed7054A47&startblock=0&endblock=99999999&page=1&offset=1&sort=desc";
 		URL url = new URL(urlStr);
 
 		BufferedReader bf; String line = ""; 
-		String result=""; 
+		String resultdata=""; 
 
 		bf = new BufferedReader(new InputStreamReader(url.openStream())); 
 
 		 while((line=bf.readLine())!=null){
-			result=result.concat(line); // System.out.println(result); 
+			resultdata=resultdata.concat(line);
 		}
-		/*
-		Object jsoninfo = new jsonVO();					
-		JSONParser jsonParser = new JSONParser();		
-		JSONObject jsonObject = (JSONObject) jsonParser
-		jsoninfo =  jsonObject.get("resultJSON");
-		  */
-		
-		System.out.println("result          :"+  result);
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) jsonParser.parse(resultdata);
+	  
+		jsonVO =jsonObject.get("result");
+		System.out.println("jsonVO1111111111         :"+  jsonVO);
+	
 
-		List<JsontestVO> jsontestList = indexService.getJsontestList();
-		
-		model.addAttribute("jsontestList", jsontestList);
-		
+		List<JsontestVO> jsontestList = indexService.getJsontestList();	
+		model.addAttribute("jsontestList", jsontestList);		
 		return "index/jsontest";
 	}
 	
