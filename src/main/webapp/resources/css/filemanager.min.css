@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+.dragAndDropDiv {
+	border: 2px solid #92aab0;
+	width: 100%;
+	height: auto;
+	min-height: 50px;
+	text-align: left;
+	vertical-align: top
+}
+
+.filelist-info-basic input[type='checkbox'] {
+	vertical-align: middle
+}
+
+.filelist-tr {
+	width: 100%;
+	vertical-align: top;
+	clear: both;
+	margin-top: 2px
+}
+
+.filelist-tr:first-child {
+	margin-top: 0
+}
+
+.filelist-tr img {
+	padding-left: 2px
+}
+
+.filelist-info-basic {
+	width: 38px;
+	text-align: left;
+	float: left
+}
+
+.filelist-info {
+	vertical-align: middle;
+	padding-top: 2px;
+	width: 82%;
+	word-break: break-all;
+	text-align: left;
+	white-space: normal;
+	margin-left: 0
+}
+
+.filelist-progress-info {
+	display: inline-block;
+	margin-right: 5px;
+	line-height: 20px;
+	border-radius: 2px;
+	font-size: 8pt;
+	clear: both;
+	vertical-align: middle;
+	overflow: hidden
+}
+
+.filelist-progressbar {
+	width: 112px;
+	height: 20px;
+	margin-left: -6px;
+	vertical-align: middle;
+	display: inline-block;
+	background-color: #fafafa;
+	border: 1px solid #e1e1e1;
+	color: #fff
+}
+
+.filelist-status {
+	margin-left: -5px;
+	text-align: right;
+	height: 18px;
+	padding-right: 10px;
+	border-radius: 0;
+	vertical-align: middle;
+	background-color: #2453ab
+}
+
+.filelist-abort {
+	height: 20px;
+	background-color: #305597;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	display: inline-block;
+	color: #fff;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 1px 3px;
+	margin-left: 5px;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle
+}
+
+.dragRow {
+	font-weight: bold
+}
