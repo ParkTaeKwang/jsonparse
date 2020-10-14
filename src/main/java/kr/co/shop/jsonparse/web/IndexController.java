@@ -1,5 +1,8 @@
 package kr.co.shop.jsonparse.web;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -45,17 +48,19 @@ public class IndexController {
 	
 	
 	@RequestMapping(value = "/jsonparse")
-	public String jsontesttest(Model model) {		
+	public String jsontesttest(Model model) throws IOException {		
 		System.out.println("jsonparse:");	
 	
-		String apiUrl = "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xB8c77482e45F1F44dE1745F52C74426C631bDD52&page=1&offset=1&sort=desc";
-		StringBuilder urlBuilder = new StringBuilder(apiUrl);
-		URL url = null;
-		try {
-			url = new URL(urlBuilder.toString());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String urlStr = "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress=0xB8c77482e45F1F44dE1745F52C74426C631bDD52&page=1&offset=1&sort=desc";
+		URL url = new URL(urlStr);
+
+		BufferedReader bf; String line = ""; 
+		String result=""; 
+
+		bf = new BufferedReader(new InputStreamReader(url.openStream())); 
+
+		 while((line=bf.readLine())!=null){
+			result=result.concat(line); // System.out.println(result); 
 		}
 		/*
 		Object jsoninfo = new jsonVO();					
@@ -64,7 +69,7 @@ public class IndexController {
 		jsoninfo =  jsonObject.get("resultJSON");
 		  */
 		
-		System.out.println("url          :"+  url);
+		System.out.println("result          :"+  result);
 
 		List<JsontestVO> jsontestList = indexService.getJsontestList();
 		
